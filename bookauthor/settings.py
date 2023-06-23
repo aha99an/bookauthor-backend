@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Local apps
     "users.apps.UsersConfig",
-    "books"
-    "bages"
+    "books",
+    "pages",
 ]
 
 MIDDLEWARE = [
