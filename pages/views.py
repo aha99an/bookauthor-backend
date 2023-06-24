@@ -25,6 +25,15 @@ class PageViewSet(viewsets.ModelViewSet):
         queryset = Page.objects.filter(book_id=self.kwargs['book_id'])
         return queryset
    
-   
+    def create(self, request, *args, **kwargs):
+        page_no = request.data.get('page_no')
+        book_id = self.kwargs['book_id']
 
+        if Page.objects.filter(book_id=book_id, page_no=page_no).exists():
+            return Response(
+                {'detail': 'Page number already exists for this book.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        return super().create(request, *args, **kwargs)
 
+    
