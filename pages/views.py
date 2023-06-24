@@ -36,4 +36,10 @@ class PageViewSet(viewsets.ModelViewSet):
             )
         return super().create(request, *args, **kwargs)
 
-    
+    def update(self, request, *args, **kwargs):
+        data = request.data
+        book_id= self.kwargs['book_id']
+        data["book"] = book_id
+        return super().update(request, *args, **kwargs)
+
+
