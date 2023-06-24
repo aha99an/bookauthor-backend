@@ -26,7 +26,11 @@ SECRET_KEY = "django-insecure-axqk((&p#7qx&z5fc_*r@*3k-@ol5p787_@uw8nriy@j-&ur78
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 AUTH_USER_MODEL = 'users.Author'
 
 # Application definition
@@ -38,6 +42,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    #3rd party
+    'rest_framework',
+    'rest_framework_simplejwt',
     # Local apps
     "users.apps.UsersConfig",
     "books",
