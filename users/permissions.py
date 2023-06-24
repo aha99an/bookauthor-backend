@@ -1,7 +1,7 @@
 from rest_framework.permissions import BasePermission
 
 
-class IsOwn(BasePermission):
+class IsOwnBook(BasePermission):
     """
     Allows users if they are Author for this book
     """
