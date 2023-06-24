@@ -20,3 +20,7 @@ class BookViewSet(viewsets.ModelViewSet):
             permission_classes = []
         return [permission() for permission in permission_classes]
 
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        data["author"] = request.user.pk
+        return super().create(request, *args, **kwargs)
